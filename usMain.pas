@@ -8,7 +8,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TForm1 = class(TForm)
+  TfrmConcentrador = class(TForm)
     rgConcentrador: TRadioGroup;
     bApplyConcentrador: TButton;
     mmConcentrador: TMemo;
@@ -16,14 +16,14 @@ type
   private
     { Private declarations }
     Concentrador : IFactoryConcentrador;
-    procedure InstaciaConcentrador;
+    procedure InstanciarConcentrador;
     procedure ExibirDadosConcentrador;
   public
     { Public declarations }
   end;
 
 var
-  Form1: TForm1;
+  frmConcentrador: TfrmConcentrador;
 
 implementation
 
@@ -32,22 +32,23 @@ uses
 
 {$R *.dfm}
 
-procedure TForm1.bApplyConcentradorClick(Sender: TObject);
+procedure TfrmConcentrador.bApplyConcentradorClick(Sender: TObject);
 begin
-  InstaciaConcentrador;
+  InstanciarConcentrador;
   ExibirDadosConcentrador;
 end;
 
-procedure TForm1.ExibirDadosConcentrador;
+procedure TfrmConcentrador.ExibirDadosConcentrador;
 var
   ConcentradorDef: IConcentrador;
 begin
   ConcentradorDef := Concentrador.GetConcentrador;
   mmConcentrador.Lines.Clear;
-  mmConcentrador.Lines.Add('Estamos lidando com um concentrador ' + ConcentradorDef.GetFabricante);
+  mmConcentrador.Lines.Add('Estamos lidando com um concentrador '+
+                           ConcentradorDef.GetFabricante + '.');
 end;
 
-procedure TForm1.InstaciaConcentrador;
+procedure TfrmConcentrador.InstanciarConcentrador;
 begin
   case rgConcentrador.ItemIndex of
     0: Concentrador := TEzTech.Create;

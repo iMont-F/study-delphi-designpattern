@@ -99,9 +99,13 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="usMain.pas">
-            <Form>Form1</Form>
+            <Form>frmConcentrador</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Pattern.AbstractProduct.pas"/>
+        <DCCReference Include="Pattern.AbstractFactory.pas"/>
+        <DCCReference Include="Pattern.ConcreteFactory.pas"/>
+        <DCCReference Include="Pattern.Product.Concentrador.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
